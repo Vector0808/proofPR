@@ -1,0 +1,8 @@
+{
+  "repository": "G:\\proofpr-smoke",
+  "base": "0d6b62b",
+  "head": "2361457",
+  "category": "correctness",
+  "ground_truth": "The refactoring in 2361457 removes the null check for user.address in src/users.js, causing a TypeError when user.address is undefined."
+}
+

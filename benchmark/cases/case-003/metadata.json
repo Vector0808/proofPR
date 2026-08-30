@@ -1,0 +1,7 @@
+{
+  "repository": "G:\\proofpr-smoke3",
+  "base": "278b24e",
+  "head": "0361e84",
+  "category": "correctness",
+  "ground_truth": "The return keyword was removed, causing the multiply function to silently return undefined instead of the product."
+}

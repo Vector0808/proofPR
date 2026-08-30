@@ -1,0 +1,10 @@
+[
+  {
+    "case": "case-001",
+    "category": "correctness",
+    "v0Findings": 1,
+    "agenticFindings": 1,
+    "verified": 0,
+    "rejected": 0
+  }
+]

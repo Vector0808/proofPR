@@ -1,0 +1,6 @@
+{"timestamp":"2026-08-30T07:52:41.510Z","step":"Initialization"}
+{"timestamp":"2026-08-30T07:52:41.511Z","step":"Gathering Git Context"}
+{"timestamp":"2026-08-30T07:52:41.842Z","step":"Building Prompts"}
+{"timestamp":"2026-08-30T07:52:41.843Z","step":"Executing LLM Request"}
+{"timestamp":"2026-08-30T07:52:43.938Z","step":"LLM Response Attempt 1","details":{"success":false,"error":"{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.\",\"status\":\"NOT_FOUND\"}}"}}
+{"timestamp":"2026-08-30T07:52:46.492Z","step":"LLM Response Attempt 2","details":{"success":false,"error":"{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.\",\"status\":\"NOT_FOUND\"}}"}}

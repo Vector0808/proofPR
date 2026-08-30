@@ -1,0 +1,29 @@
+[
+  {
+    "case": "case-001",
+    "category": "correctness",
+    "v0Findings": "Unavailable",
+    "agenticFindings": "Unavailable",
+    "verified": "Unavailable",
+    "rejected": "Unavailable",
+    "error": "RESOURCE_EXHAUSTED: Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests. Limit reached during execution."
+  },
+  {
+    "case": "case-002",
+    "category": "correctness",
+    "v0Findings": "Unavailable",
+    "agenticFindings": "Unavailable",
+    "verified": "Unavailable",
+    "rejected": "Unavailable",
+    "error": "RESOURCE_EXHAUSTED: Evaluation blocked by Gemini free tier API quota limits."
+  },
+  {
+    "case": "case-003",
+    "category": "correctness",
+    "v0Findings": "Unavailable",
+    "agenticFindings": "Unavailable",
+    "verified": "Unavailable",
+    "rejected": "Unavailable",
+    "error": "RESOURCE_EXHAUSTED: Evaluation blocked by Gemini free tier API quota limits."
+  }
+]

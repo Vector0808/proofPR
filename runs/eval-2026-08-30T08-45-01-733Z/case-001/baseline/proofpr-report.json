@@ -1,0 +1,23 @@
+{
+  "summary": "The PR removes the check for `user.address` in `getUserCity`, introducing a runtime `TypeError` risk when a user object is missing an `address` property or when `address` is null/undefined.",
+  "findings": [
+    {
+      "id": "F-001",
+      "file": "src/users.js",
+      "line": 2,
+      "severity": "high",
+      "type": "error_handling",
+      "title": "Unsafe property access on potentially missing `user.address`",
+      "description": "Removing the `if (!user.address)` guard clause causes `getUserCity` to throw a `TypeError: Cannot read properties of undefined (reading 'city')` whenever `user.address` is undefined or null. Optional chaining should be used if simplifying the function.",
+      "proposedFix": "function getUserCity(user) {\n  return user?.address?.city ?? null;\n}",
+      "confidence": "high",
+      "verificationHypothesis": "If a user object without an `address` property (e.g., `{ id: 1 }`) or with `address: null` is passed to `getUserCity`, the function will throw a `TypeError` instead of returning `null`.",
+      "suggestedReproduction": {
+        "input": "getUserCity({ id: 1 })",
+        "preconditions": "`user` object is passed without an `address` key.",
+        "expectedBehavior": "Function returns `null` or `undefined` safely.",
+        "suspiciousBehavior": "Function throws `TypeError: Cannot read properties of undefined (reading 'city')`."
+      }
+    }
+  ]
+}

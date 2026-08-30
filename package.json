@@ -1,0 +1,40 @@
+{
+  "name": "proofpr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "bin": {
+    "proofpr": "dist/index.js"
+  },
+  "scripts": {
+    "dev:api": "tsx src/index.ts dashboard",
+    "dev:frontend": "npm run dev --prefix src/frontend",
+    "dev": "concurrently \"npm run dev:api\" \"npm run dev:frontend\"",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@google/genai": "^2.19.0",
+    "commander": "^15.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "zod": "^4.5.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.4.0",
+    "concurrently": "^10.0.5",
+    "tsx": "^4.23.12",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.11"
+  }
+}

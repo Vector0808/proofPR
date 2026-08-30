@@ -1,0 +1,25 @@
+{
+  "summary": "The PR removes input validation for the discount percentage in `calculateDiscount`, allowing out-of-bounds percentages (such as negative values or percentages greater than 100%) to be processed without error.",
+  "findings": [
+    {
+      "id": "F-001",
+      "file": "src.js",
+      "line": 1,
+      "severity": "medium",
+      "type": "validation",
+      "title": "Removed percentage validation check",
+      "description": "Removing the bounds check (`percentage < 0 || percentage > 100`) allows invalid percentage inputs (e.g., -50% or 150%) to pass silently and compute incorrect prices (e.g., increasing price on negative discount or resulting in negative price on discounts > 100%) instead of throwing an 'Invalid discount percentage' Error.",
+      "proposedFix": "function calculateDiscount(price, percentage) {\n  if (percentage < 0 || percentage > 100) {\n    throw new Error(\"Invalid discount percentage\");\n  }\n  return price - (price * percentage / 100);\n}",
+      "confidence": "high",
+      "verificationHypothesis": "Calling `calculateDiscount(100, -10)` or `calculateDiscount(100, 150)` will not throw an Error as expected for invalid percentages.",
+      "suggestedReproduction": {
+        "input": "calculateDiscount(100, -10)",
+        "preconditions": "src.js is imported in Node.js environment.",
+        "expectedBehavior": "Should throw an Error with message 'Invalid discount percentage'.",
+        "suspiciousBehavior": "Returns 110 without throwing an error.",
+        "reproductionCode": "const assert = require('assert');\nconst { calculateDiscount } = require('./src.js');\n\ntry {\n  calculateDiscount(100, -10);\n  // Bug reproduced: no error was thrown for negative percentage\n  console.error('Bug reproduced: calculateDiscount accepted negative percentage without throwing an error.');\n  process.exit(1);\n} catch (err) {\n  if (err.message === 'Invalid discount percentage') {\n    console.log('Validation works correctly.');\n    process.exit(0);\n  } else {\n    console.error('Unexpected error:', err);\n    process.exit(1);\n  }\n}"
+      }
+    }
+  ],
+  "rawResponse": "{\n  \"summary\": \"The PR removes input validation for the discount percentage in `calculateDiscount`, allowing out-of-bounds percentages (such as negative values or percentages greater than 100%) to be processed without error.\",\n  \"findings\": [\n    {\n      \"id\": \"F-001\",\n      \"file\": \"src.js\",\n      \"line\": 1,\n      \"severity\": \"medium\",\n      \"type\": \"validation\",\n      \"title\": \"Removed percentage validation check\",\n      \"description\": \"Removing the bounds check (`percentage < 0 || percentage > 100`) allows invalid percentage inputs (e.g., -50% or 150%) to pass silently and compute incorrect prices (e.g., increasing price on negative discount or resulting in negative price on discounts > 100%) instead of throwing an 'Invalid discount percentage' Error.\",\n      \"proposedFix\": \"function calculateDiscount(price, percentage) {\\n  if (percentage < 0 || percentage > 100) {\\n    throw new Error(\\\"Invalid discount percentage\\\");\\n  }\\n  return price - (price * percentage / 100);\\n}\",\n      \"confidence\": \"high\",\n      \"verificationHypothesis\": \"Calling `calculateDiscount(100, -10)` or `calculateDiscount(100, 150)` will not throw an Error as expected for invalid percentages.\",\n      \"suggestedReproduction\": {\n        \"input\": \"calculateDiscount(100, -10)\",\n        \"preconditions\": \"src.js is imported in Node.js environment.\",\n        \"expectedBehavior\": \"Should throw an Error with message 'Invalid discount percentage'.\",\n        \"suspiciousBehavior\": \"Returns 110 without throwing an error.\",\n        \"reproductionCode\": \"const assert = require('assert');\\nconst { calculateDiscount } = require('./src.js');\\n\\ntry {\\n  calculateDiscount(100, -10);\\n  // Bug reproduced: no error was thrown for negative percentage\\n  console.error('Bug reproduced: calculateDiscount accepted negative percentage without throwing an error.');\\n  process.exit(1);\\n} catch (err) {\\n  if (err.message === 'Invalid discount percentage') {\\n    console.log('Validation works correctly.');\\n    process.exit(0);\\n  } else {\\n    console.error('Unexpected error:', err);\\n    process.exit(1);\\n  }\\n}\"\n      }\n    }\n  ]\n}"
+}

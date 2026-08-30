@@ -1,0 +1,6 @@
+{"timestamp":"2026-08-30T07:45:03.909Z","step":"Initialization"}
+{"timestamp":"2026-08-30T07:45:03.910Z","step":"Gathering Git Context"}
+{"timestamp":"2026-08-30T07:45:04.302Z","step":"Building Prompts"}
+{"timestamp":"2026-08-30T07:45:04.303Z","step":"Executing LLM Request"}
+{"timestamp":"2026-08-30T07:45:05.369Z","step":"LLM Response Attempt 1","details":{"success":false,"error":"{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-pro is no longer available to new users. Please update your code to use models/gemini-3.1-pro-preview for the latest features and improvements. We recommend you to use the Interactions API.\",\"status\":\"NOT_FOUND\"}}"}}
+{"timestamp":"2026-08-30T07:45:05.704Z","step":"LLM Response Attempt 2","details":{"success":false,"error":"{\"error\":{\"code\":404,\"message\":\"This model models/gemini-2.5-pro is no longer available to new users. Please update your code to use models/gemini-3.1-pro-preview for the latest features and improvements. We recommend you to use the Interactions API.\",\"status\":\"NOT_FOUND\"}}"}}

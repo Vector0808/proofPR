@@ -1,0 +1,7 @@
+{
+  "repository": "G:\\proofpr-smoke2",
+  "base": "a840874",
+  "head": "0f0a841",
+  "category": "correctness",
+  "ground_truth": "The loop condition was changed from i < items.length to i <= items.length, which causes an out of bounds access and TypeError (cannot read properties of undefined (reading 'price'))."
+}
