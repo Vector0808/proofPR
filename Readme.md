@@ -30,8 +30,8 @@ graph TD
 ## Installation
 
 ```bash
-git clone https://github.com/proofpr/proofpr.git
-cd proofpr
+git clone https://github.com/Vector0808/proofPR.git
+cd proofPR
 npm install
 npm run build
 ```
@@ -40,7 +40,7 @@ npm run build
 Create a `.env` file in the root directory:
 ```
 LLM_PROVIDER=gemini
-LLM_MODEL=gemini-3.5-pro
+LLM_MODEL=gemini-3.6-Flash
 GEMINI_API_KEY=your_api_key_here
 ```
 
